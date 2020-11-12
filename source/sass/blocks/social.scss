@@ -111,20 +111,19 @@
   opacity: 1;
 }
 
-.facebook__icon {
-  // margin-top: 7px;
-}
+@media (min-width: $tablet-width) {
+  .social {
+    width: 350px;
+  }
 
-.instagram__icon {
-  // margin-top: 7px;
-}
+  .social__item {
+    margin-right: 24px;
+    border-radius: 50%;
 
-.twitter__icon {
-  // margin-top: 9px;
-}
-
-.youtube__icon {
-  // margin-top: 8px;
+    &:first-child {
+      margin-left: 48px;
+    }
+  }
 }
 
 @media (min-width: $desktop-width) {
@@ -134,8 +133,6 @@
   }
 
   .social__item {
-    width: 42px;
-    height: 42px;
     margin-right: 24px;
     border-radius: 50%;
 

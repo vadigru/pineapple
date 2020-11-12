@@ -15,7 +15,7 @@ body {
   background-image: url("../img/image_summer.jpg");
   background-repeat: no-repeat;
   background-size: cover;
-  background-position: center;
+  background-position-x: -281px;
 }
 
 .subscribe {
@@ -69,7 +69,7 @@ body {
 
 .subscribe__email {
   @include font(16px, 24px, $night-black);
-  width: 290px;
+  width: 100%;
   padding-top: 18px;
   padding-bottom: 16px;
   padding-left: 15px;
@@ -112,11 +112,11 @@ body {
 }
 
 .subscribe-input {
-  // display: none;
+  display: none;
 }
 
 .subscribe-done {
-  display: none;
+  // display: none;
 }
 
 .subscribe-done .subscribe__union {
@@ -132,6 +132,31 @@ body {
   margin-bottom: 40px;
 }
 
+@media (min-width: $tablet-width) {
+  .main {
+    width: 768px;
+    background-position-x: 0;
+  }
+
+  .subscribe {
+    width: 500px;
+    height: 420px;;
+  }
+
+  .subscribe__form-wrapper {
+    padding: 30px 80px 0 80px;
+  }
+
+  .subscribe-done .subscribe__text {
+    margin-bottom: 60px;
+  }
+
+  .subscribe-done .subscribe__union {
+    order: -1;
+    margin-top: 10px;
+  }
+}
+
 @media (min-width: $desktop-width) {
   body {
     justify-content: flex-start;
@@ -143,12 +168,14 @@ body {
     height: 100vh;
     justify-content: flex-start;
     align-items: stretch;
+    background-size: auto;
+    background-position-x: 680px;
   }
 
   .subscribe {
     width: 680px;
-    height: calc(100vh - 345px);
-    padding-top: 345px;
+    height: calc(1080px - 345px);
+    margin-top: 345px;
   }
 
   .subscribe__form-wrapper {
@@ -157,10 +184,7 @@ body {
 
   .subscribe__title {
     @include font(32px, 44px, $night-black);
-    // margin: 0;
     margin-bottom: 0;
-    // padding: 0;
-    // font-family: $font-secondary;
   }
 
   .subscribe__text {
@@ -171,12 +195,11 @@ body {
   .form__input {
     position: absolute;
     left: 100px;
-    // display: none;
   }
 
   .subscribe__email {
     @include font(16px, 24px, $night-black);
-    width: 659px;
+    width: 658px;
     padding-top: 24px;
     padding-bottom: 20px;
     padding-left: 40px;
@@ -184,7 +207,23 @@ body {
 
   .subscribe__submit {
     padding-top: 27px;
-    padding-right: 40px;
+    padding-right: 39px;
     padding-bottom: 20px;
+  }
+
+  .subscribe-done {
+    margin-top: -106px;
+  }
+
+  .subscribe-done .subscribe__union {
+    margin-bottom: 30px;
+  }
+
+  .subscribe-done .subscribe__title {
+    margin-bottom: 5px;
+  }
+
+  .subscribe-done .subscribe__text {
+    margin-bottom: 49px;
   }
 }
