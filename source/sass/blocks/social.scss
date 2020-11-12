@@ -1,0 +1,146 @@
+.social {
+  width: 295px;
+  margin: 0 auto;
+  padding-top: 20px;
+  border-top: 1px solid $grey;
+}
+
+.social__items {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.social__item {
+  width: 42px;
+  height: 42px;
+  margin-right: 14px;
+  border-radius: 50%;
+
+  &:first-child {
+    margin-left: 33px;
+  }
+}
+
+.facebook__link,
+.instagram__link,
+.twitter__link,
+.youtube__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 42px;
+  height: 42px;
+  border: 2px solid $grey;
+  border-radius: 50%;
+}
+
+.facebook__link:hover,
+.facebook__link:focus,
+.instagram__link:hover,
+.instagram__link:focus,
+.twitter__link:hover,
+.twitter__link:focus,
+.youtube__link:hover,
+.youtube__link:focus {
+  box-shadow: 0 20px 40px $social-shadow-color;
+}
+
+.facebook__link:hover,
+.facebook__link:focus {
+  background-color: $facebook-hover;
+  border: 2px solid $facebook-hover;
+}
+
+.facebook__link:active {
+  border: 2px solid $facebook-pressed;
+  background-color: $facebook-pressed;
+}
+
+.instagram__link:hover,
+.instagram__link:focus {
+  background-color: $instagram-hover;
+  border: 2px solid $instagram-hover;
+}
+
+.instagram__link:active {
+  border: 2px solid $instagram-pressed;
+  background-color: $instagram-pressed;
+}
+
+.twitter__link:hover,
+.twitter__link:focus {
+  background-color: $twitter-hover;
+  border: 2px solid $twitter-hover;
+}
+
+.twitter__link:active {
+  border: 2px solid $twitter-pressed;
+  background-color: $twitter-pressed;
+}
+
+.youtube__link:hover,
+.youtube__link:focus {
+  background-color: $youtube-hover;
+  border: 2px solid $youtube-hover;
+}
+
+.youtube__link:active {
+  border: 2px solid $youtube-pressed;
+  background-color: $youtube-pressed;
+}
+
+.facebook__icon path,
+.instagram__icon path,
+.twitter__icon path,
+.youtube__icon path {
+  fill: $night-black;
+  opacity: 0.3;
+}
+
+.facebook__link:hover path,
+.facebook__link:focus path,
+.instagram__link:hover path,
+.instagram__link:focus path,
+.twitter__link:hover path,
+.twitter__link:focus path,
+.youtube__link:hover path,
+.youtube__link:focus path {
+  fill: $white;
+  opacity: 1;
+}
+
+.facebook__icon {
+  // margin-top: 7px;
+}
+
+.instagram__icon {
+  // margin-top: 7px;
+}
+
+.twitter__icon {
+  // margin-top: 9px;
+}
+
+.youtube__icon {
+  // margin-top: 8px;
+}
+
+@media (min-width: $desktop-width) {
+  .social {
+    width: 400px;
+    padding-top: 50px;
+  }
+
+  .social__item {
+    width: 42px;
+    height: 42px;
+    margin-right: 24px;
+    border-radius: 50%;
+
+    &:first-child {
+      margin-left: 78px;
+    }
+  }
+}

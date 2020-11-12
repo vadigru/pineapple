@@ -1,0 +1,22 @@
+@mixin font($size, $height, $color: $black, $weight: normal) {
+  font-size: $size;
+  line-height: $height;
+  font-weight: $weight;
+  color: $color;
+}
+
+@mixin hide-btn-text() {
+  text-indent: -9999px;
+  line-height: 0;
+  border: 0;
+  background-color: transparent;
+}
+
+@mixin svg-ie-fix {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
