@@ -1,0 +1,96 @@
+.form__input {
+  margin-bottom: 3.5px;
+  border-top: 1px solid $grey;
+  border-right: 1px solid $grey;
+  border-bottom: 1px solid $grey;
+  border-left: 4px solid $deep-blue;
+  background-color: $white;
+  position: relative;
+
+  &:hover {
+    border-top: 1px solid $deep-blue;
+    border-right: 1px solid $deep-blue;
+    border-bottom: 1px solid $deep-blue;
+  }
+
+  &:hover path {
+    fill: $deep-blue;
+    opacity: 1;
+  }
+}
+
+.form__email {
+  @include font(16px, 24px, $night-black);
+  width: 100%;
+  height: 58px;
+  padding-left: 15px;
+  padding-right: 50px;
+  border: 0;
+  box-sizing: border-box;
+}
+
+.form__submit path {
+  opacity: 0.3;
+}
+
+.form__submit {
+  height: 56px;
+  width: 40px;
+  background-color: $white;
+  border: 0;
+  position: absolute;
+  right: 0;
+  cursor: pointer;
+
+  svg {
+    padding-top: 2px;
+  }
+
+  &:focus path {
+    fill: $deep-blue;
+    opacity: 1;
+  }
+}
+
+.form__email:hover,
+.form__email:focus {
+  box-shadow: 0 30px 40px $input-shadow-color;
+  outline: none;
+}
+
+.form__submit:focus {
+  box-shadow: none;
+  outline: none;
+}
+
+.form__submit:hover + input,
+.form__submit:focus + input {
+  box-shadow: 0 30px 40px $input-shadow-color;
+}
+
+@media (min-width: $desktop-width) {
+  .form__input {
+    position: relative;
+    width: 658px;
+    left: -40px;
+  }
+
+  .form__email {
+    @include font(16px, 24px, $night-black);
+    width: 658px;
+    height: 68px;
+    padding-right: 100px;
+    padding-left: 40px;
+  }
+
+  .form__submit {
+    width: 87px;
+    height: 66px;
+    z-index: 10;
+
+    svg {
+      padding-top: 1px;
+      padding-right: 3px;
+    }
+  }
+}

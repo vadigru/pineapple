@@ -34,7 +34,7 @@
 .terms__checkbox:checked + .terms__checkbox-label {
   &::after {
     background-color: $deep-blue;
-    background-image: url("../../img/checkmark.svg");
+    background-image: url("../../img/icon-checkmark.svg");
     background-repeat: no-repeat;
     background-position: center;
   }
@@ -48,7 +48,7 @@
 .terms__link {
   color: $night-black;
   display: inline-block;
-  line-height: 14px;
+  line-height: 13.5px;
   margin: 0;
   padding: 0;
   border-bottom: 2px solid $night-black;
@@ -73,7 +73,7 @@
 
 @media (min-width: $desktop-width) {
   .terms {
-    margin-top: 106px;
+    margin-top: 36px;
     margin-bottom: 30px;
   }
 }

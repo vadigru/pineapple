@@ -7,7 +7,6 @@
 
 .social__items {
   display: flex;
-  list-style-type: none;
   margin: 0;
   padding: 0;
 }
@@ -36,15 +35,22 @@
   border-radius: 50%;
 }
 
-.facebook__link:hover,
+.facebook:hover,
+.instagram:hover,
+.twitter:hover,
+.youtube:hover,
 .facebook__link:focus,
-.instagram__link:hover,
 .instagram__link:focus,
-.twitter__link:hover,
 .twitter__link:focus,
-.youtube__link:hover,
 .youtube__link:focus {
   box-shadow: 0 20px 40px $social-shadow-color;
+}
+
+.facebook:hover .facebook__link:focus,
+.instagram:hover .instagram__link:focus,
+.twitter:hover .twitter__link:focus,
+.youtube:hover .youtube__link:focus {
+  box-shadow: none;
 }
 
 .facebook__link:hover,
