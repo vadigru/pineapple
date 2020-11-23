@@ -3,7 +3,7 @@
 ## How to start a project locally:
 Download or clone:
 ```sh
-git@github.com:vadigru/react-slider.git
+git@github.com:vadigru/pineapple.git
 ```
 Install project on local computer (node.js required):
 ```sh
