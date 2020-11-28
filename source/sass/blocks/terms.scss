@@ -5,6 +5,7 @@
   align-items: center;
   margin: 0;
   padding: 0;
+  margin-bottom: 16px;
   padding-bottom: 3px;
 }
 
@@ -42,13 +43,14 @@
 
 .terms__text {
   @include font(16px, 28px, $greyish-brown);
-  padding-top: 2px;
+  padding: 0;
+  margin: 0;
 }
 
 .terms__link {
   color: $night-black;
   display: inline-block;
-  line-height: 13.5px;
+  line-height: 14px;
   margin: 0;
   padding: 0;
   border-bottom: 2px solid $night-black;
@@ -73,7 +75,7 @@
 
 @media (min-width: $desktop-width) {
   .terms {
-    margin-top: 36px;
+    margin-top: 34px;
     margin-bottom: 30px;
   }
 }

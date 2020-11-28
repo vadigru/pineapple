@@ -1,5 +1,8 @@
+::-ms-clear {
+  display: none;
+}
+
 .form__input {
-  margin-bottom: 3.5px;
   border-top: 1px solid $grey;
   border-right: 1px solid $grey;
   border-bottom: 1px solid $grey;
@@ -17,16 +20,34 @@
     fill: $deep-blue;
     opacity: 1;
   }
+
+  &:hover .form__submit:disabled path {
+    fill: $gray;
+    opacity: 1;
+  }
 }
 
 .form__email {
   @include font(16px, 24px, $night-black);
-  width: 100%;
+  width: 240px;
   height: 58px;
   padding-left: 15px;
-  padding-right: 50px;
   border: 0;
   box-sizing: border-box;
+}
+
+.form__error-field {
+  height: 20px;
+  position: relative;
+  left: 10px;
+}
+
+.form__error-message {
+  width: 100%;
+  position: absolute;
+  margin-top: -5px;
+  font-size: 10px;
+  color: $red-tomato;
 }
 
 .form__submit path {
@@ -34,16 +55,22 @@
 }
 
 .form__submit {
-  height: 56px;
-  width: 40px;
+  height: 58px;
+  width: 48px;
   background-color: $white;
   border: 0;
   position: absolute;
   right: 0;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
 
   svg {
-    padding-top: 2px;
+    margin-top: -2px;
+    margin-right: 3px;
   }
 
   &:focus path {
@@ -68,6 +95,21 @@
   box-shadow: 0 30px 40px $input-shadow-color;
 }
 
+.form__submit:disabled:hover path,
+.form__submit:disabled:focus path {
+  fill: $gray;
+}
+
+@media (min-width: $tablet-width) {
+  .form__error-field {
+    position: relative;
+  }
+
+  .form__error-message {
+    font-size: 12px;
+  }
+}
+
 @media (min-width: $desktop-width) {
   .form__input {
     position: relative;
@@ -77,20 +119,25 @@
 
   .form__email {
     @include font(16px, 24px, $night-black);
-    width: 658px;
-    height: 68px;
+    width: 550px;
+    height: 69px;
     padding-right: 100px;
     padding-left: 40px;
   }
 
-  .form__submit {
-    width: 87px;
-    height: 66px;
-    z-index: 10;
+  .form__error-field {
+    width: 140%;
+    left: -30px;
+  }
 
-    svg {
-      padding-top: 1px;
-      padding-right: 3px;
-    }
+  .form__error-message {
+    font-size: 14px;
+  }
+
+  .form__submit {
+    width: 100px;
+    height: 69px;
+    z-index: 10;
+    box-sizing: border-box;
   }
 }

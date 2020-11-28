@@ -44,7 +44,7 @@
           <p class="subscribe__text">
             Subscribe to our newsletter and get 10% discount on pineapple glasses.
           </p>
-          <form class="form" action="#" method="post">
+          <form class="form" method="post">
             <div class="form__input">
               <button class="form__submit" type="submit" tabindex="5">
                 <span class="visually-hidden">Submit</span>
@@ -53,6 +53,9 @@
                 </svg>
               </button>
               <input class="form__email" type="text" placeholder="Type your email address here…" tabindex="4">
+            </div>
+            <div class="form__error-field">
+              <p class="form__error-message"><span class="visually-hidden">Error message field</span></p>
             </div>
             <div class="form__terms terms">
               <input class="terms__checkbox visually-hidden" type="checkbox" name="terms__checkbox" id="terms-checkbox">
@@ -64,7 +67,7 @@
           </form>
         </div>
 
-        <div class="subscribe__wrapper subscribe-done">
+        <div class="subscribe__wrapper subscribe-done hidden">
           <h2 class="subscribe__title">Thanks for subscribing!</h2>
           <svg class="subscribe__union" width="44" height="70">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M13 51C13 50.4477 13.4477 50 14 50H30C30.5523 50 31 50.4477 31 51V61C31 61.5523 30.5523 62 30 62H14C13.4477 62 13 61.5523 13 61V51ZM15 52H29V60H15V52Z" fill="#4066A5"/>
@@ -117,7 +120,7 @@
 
     </main>
     <script src="js/picturefill.min.js" async></script>
-    <!-- <script src="js/script.min.js"></script> -->
+    <script src="js/script.min.js"></script>
   </div>
 </body>
 </html>
