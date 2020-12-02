@@ -1,3 +1,7 @@
+<?php
+  include "php/db.php";
+  include "php/validation.php";
+?>
 <!DOCTYPE html>
 <html lang="ru">
 
@@ -5,8 +9,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Pineapple</title>
-  <!-- <link rel="preload" href="fonts/opensans.woff2" as="font" crossorigin="anonymous"> -->
-  <!-- <link rel="preload" href="fonts/opensansbold.woff2" as="font" crossorigin="anonymous"> -->
   <link rel="stylesheet" href="css/style.min.css">
 </head>
 
@@ -39,26 +41,28 @@
 
     <main class="main">
       <section class="subscribe">
-        <div class="subscribe__wrapper subscribe-input">
+        <div class="subscribe__wrapper subscribe-input" <?php if($validation === 'ok') echo 'style="display: none"';?>>
           <h2 class="subscribe__title">Subscribe to newsletter</h2>
           <p class="subscribe__text">
             Subscribe to our newsletter and get 10% discount on pineapple glasses.
           </p>
-          <form class="form" method="post">
+          <form class="form" method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>">
             <div class="form__input">
-              <button class="form__submit" type="submit" tabindex="5">
+              <button class="form__submit" type="submit" name="submit" tabindex="5">
                 <span class="visually-hidden">Submit</span>
                 <svg width="24" height="14">
                   <path opacity="0.3" d="M17.7071 0.2929C17.3166 -0.0976334 16.6834 -0.0976334 16.2929 0.2929C15.9023 0.683403 15.9023 1.31658 16.2929 1.70708L20.5858 5.99999H1C0.447693 5.99999 0 6.44772 0 6.99999C0 7.55227 0.447693 7.99999 1 7.99999H20.5858L16.2929 12.2929C15.9023 12.6834 15.9023 13.3166 16.2929 13.7071C16.6834 14.0976 17.3166 14.0976 17.7071 13.7071L23.7071 7.70708C24.0977 7.31658 24.0977 6.6834 23.7071 6.2929L17.7071 0.2929Z" fill="#131821"/>
                 </svg>
               </button>
-              <input class="form__email" type="text" placeholder="Type your email address here…" tabindex="4">
+              <input class="form__email" type="text" name="email" placeholder="Type your email address here…" value="<?php echo $email;?>" tabindex="4">
             </div>
             <div class="form__error-field">
-              <p class="form__error-message"><span class="visually-hidden">Error message field</span></p>
+              <p class="form__error-message">
+                <span class="visually-hidden">Error message field</span>
+                <?php echo $validationErr;?></p>
             </div>
             <div class="form__terms terms">
-              <input class="terms__checkbox visually-hidden" type="checkbox" name="terms__checkbox" id="terms-checkbox">
+              <input class="terms__checkbox visually-hidden" type="checkbox" name="checkbox" id="terms-checkbox" <?php if($checkbox === 'on') echo 'checked="checked"';?>>
               <label class="terms__checkbox-label" for="terms-checkbox"><span class="visually-hidden">Checkbox</span></label>
               <p class="terms__text">
                 I agree to <a class="terms__link" href="#"> terms of service</a>
@@ -67,7 +71,7 @@
           </form>
         </div>
 
-        <div class="subscribe__wrapper subscribe-done hidden">
+        <div class="subscribe__wrapper subscribe-done" <?php if($validation === 'ok') echo 'style="display: flex"';?>>
           <h2 class="subscribe__title">Thanks for subscribing!</h2>
           <svg class="subscribe__union" width="44" height="70">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M13 51C13 50.4477 13.4477 50 14 50H30C30.5523 50 31 50.4477 31 51V61C31 61.5523 30.5523 62 30 62H14C13.4477 62 13 61.5523 13 61V51ZM15 52H29V60H15V52Z" fill="#4066A5"/>
@@ -119,8 +123,21 @@
       </section>
 
     </main>
+
     <script src="js/picturefill.min.js" async></script>
     <script src="js/script.min.js"></script>
   </div>
+
+<?php
+    $email_field = mysqli_real_escape_string($conn, $email);
+    if ($validation === 'ok') {
+      $domain = explode('@', $email);
+      $domain = explode('.', $domain[1]);
+      $sql = "INSERT INTO subscribers (email, date, time, provider) VALUES ('$email_field', CURDATE(), CURTIME(), '$domain[0]')";
+      mysqli_query($conn, $sql);
+    }
+    mysqli_close($conn);
+  ?>
+
 </body>
 </html>

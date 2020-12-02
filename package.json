@@ -9,6 +9,7 @@
     "browser-sync": "^2.26.12",
     "del": "^5.1.0",
     "gulp": "4.0.x",
+    "gulp-connect-php": "^1.0.3",
     "gulp-csso": "^4.0.1",
     "gulp-htmlmin": "^5.0.1",
     "gulp-imagemin": "^6.2.0",
@@ -30,7 +31,8 @@
     "stylelint": "stylelint \"source/sass/**/*.scss\" --syntax scss",
     "test": "npm run editorconfig && npm run stylelint",
     "build": "gulp build",
-    "start": "gulp start"
+    "start": "gulp start",
+    "phpstart": "gulp start"
   },
   "browserslist": [
     "last 2 versions",

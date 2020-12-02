@@ -3,10 +3,9 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  margin: 0;
-  padding: 0;
-  margin-bottom: 16px;
-  padding-bottom: 3px;
+  // margin: 0;
+  // padding: 0;
+  margin-bottom: 19px;
 }
 
 .terms__checkbox-label {
@@ -75,7 +74,7 @@
 
 @media (min-width: $desktop-width) {
   .terms {
-    margin-top: 34px;
-    margin-bottom: 30px;
+    margin-top: 24px;
+    margin-bottom: 49px;
   }
 }
