@@ -123,8 +123,6 @@
       </section>
 
     </main>
-
-    <script src="js/picturefill.min.js" async></script>
     <script src="js/script.min.js"></script>
   </div>
 

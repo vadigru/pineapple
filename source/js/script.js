@@ -47,6 +47,7 @@
 
   var validateInput = function (evt) {
     var errorMessage;
+    form.addEventListener('input', validateInput);
 
     if (Check.isFiledEmpty() || !Check.isEmailValid() || Check.isEmailEndsWithCo() || !Check.isTermsChecked()) {
       submitButton.disabled = true;
@@ -75,11 +76,10 @@
     if (!Check.isFiledEmpty() && Check.isEmailValid() && !Check.isEmailEndsWithCo() && Check.isTermsChecked()) {
       subscribeInProgress.style.display = 'none';
       subscribeCompleted.style.display = 'flex';
-    } else {
-      validateInput();
+      form.removeEventListener('input', validateInput);
     }
   }
 
-  form.addEventListener('input', validateInput);
+  form.addEventListener('change', validateInput);
   form.addEventListener('submit', performSubmit);
 })()

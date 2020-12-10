@@ -3,8 +3,6 @@
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  // margin: 0;
-  // padding: 0;
   margin-bottom: 19px;
 }
 
@@ -34,7 +32,7 @@
 .terms__checkbox:checked + .terms__checkbox-label {
   &::after {
     background-color: $deep-blue;
-    background-image: url("../../img/icon-checkmark.svg");
+    background-image: url("../img/icon-checkmark.svg");
     background-repeat: no-repeat;
     background-position: center;
   }

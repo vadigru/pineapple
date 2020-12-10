@@ -1,9 +1,11 @@
 <?php
 include "db.php";
-include "sort.php";
 include "pagination.php";
 include "search.php";
 include "filter.php";
+
+global $filter_label;
+global $sort_label;
 ?>
 
 <!DOCTYPE html>
@@ -48,14 +50,20 @@ include "filter.php";
   <hr>
   <table border="0" width="100%">
     <tr>
-      <th><?php echo '<a href="index.php?id=id">Id</a>' ?></th>
-      <th><?php echo '<a href="index.php?id=email">Email</a>' ?></th>
-      <th><?php echo '<a href="index.php?id=date">Date</a>' ?></th>
-      <th><?php echo '<a href="index.php?id=time">Time</a>' ?></th>
+      <th><?php echo '<a href="index.php?page=' . $page . '&sort=id">Id</a>' ?></th>
+      <th><?php echo '<a href="index.php?page=' . $page . '&sort=email">Email</a>' ?></th>
+      <th><?php echo '<a href="index.php?page=' . $page . '&sort=date">Date</a>' ?></th>
+      <th><?php echo '<a href="index.php?page=' . $page . '&sort=time">Time</a>' ?></th>
       <th></th>
     </tr>
 
     <?php
+      if (isset($_GET['value'])) {
+        $filter_label = $_GET['value'];
+      }
+      if (isset($_GET['sort'])) {
+        $sort_label = $_GET['sort'];
+      }
       if (mysqli_num_rows($result) > 0) {
         while($row = mysqli_fetch_assoc($result)) {
           ?>
@@ -64,7 +72,13 @@ include "filter.php";
             <td align="center"><?php echo $row["email"] ?></td>
             <td align="center"><?php echo $row["date"] ?></td>
             <td align="center"><?php echo $row["time"] ?></td>
-            <td><a href="delete-process.php?id=<?php echo $row["id"]; ?>"><button>X</button></a></td>
+            <td>
+            <?php echo '<a href="delete-process.php?sort=' . $sort_label .
+              '&value=' . $filter_label .
+              '&page=' . $page .
+              '&id=' . $row["id"] .
+              '"><button>X</button></a>' ?>
+            </td>
           </tr>
           <?php
         }
@@ -78,11 +92,12 @@ include "filter.php";
     <tr>
       <td align="center">
       <?php
-
           for ($page = 1; $page <= $number_of_pages; $page++) {
-            echo '<a href="index.php?page='.$page.'&id='.$id.'">'.$page.'</a>'."&nbsp;";
-              }
-            mysqli_close($conn);
+                echo '<a href="index.php?page=' . $page .
+                '&sort=' . $sort .
+                '">' . $page . '</a>'."&nbsp;";
+            }
+          mysqli_close($conn);
       ?>
       </td>
     </tr>
